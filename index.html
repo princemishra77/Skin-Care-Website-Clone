@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Care - Natural Skincare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: #fff;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        .icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            transition: color 0.3s;
+        }
+
+        .icon-btn:hover {
+            color: #ff6b35;
+        }
+
+        .hero {
+            background: #fafafa;
+            padding: 5rem 5% 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .tags {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .tag::before {
+            content: "•";
+            color: #ff6b35;
+            font-size: 1.5rem;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 550px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-card-hero {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            width: 260px;
+        }
+
+        .product-card-hero img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .product-card-hero h3 {
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .product-card-hero .subtitle {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .product-card-hero .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 0.85rem;
+            background: #ff6b35;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #e55a28;
+        }
+
+        .products-section {
+            padding: 5rem 5%;
+            background: #fff;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .view-all {
+            background: #ff6b35;
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .view-all:hover {
+            background: #e55a28;
+            transform: translateX(3px);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            border-color: #ddd;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 1.2rem;
+        }
+
+        .product-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        .product-reviews {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .stars {
+            color: #ffa500;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .testimonials {
+            background: #fafafa;
+            padding: 5rem 5%;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-rating {
+            color: #ffa500;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+        }
+
+        .about-section {
+            padding: 5rem 5%;
+            background: #fff;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .newsletter p {
+            margin-bottom: 2rem;
+            color: #bbb;
+            font-size: 1.05rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1.1rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form button {
+            padding: 1.1rem 2.5rem;
+            background: #ff6b35;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #e55a28;
+        }
+
+        footer {
+            background: #0f0f0f;
+            color: #999;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            color: #999;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #2a2a2a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #ff6b35;
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-column a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2a2a2a;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 5%;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Codynn Care</div>
+        <i class="fas fa-bars menu-icon"></i>
+        <nav>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+        </nav>
+        <div class="icons">
+            <button class="icon-btn"><i class="fas fa-search"></i></button>
+            <button class="icon-btn"><i class="fas fa-user"></i></button>
+            <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tags">
+                <span class="tag">Pure Care</span>
+                <span class="tag">Natural Beauty</span>
+                <span class="tag">Fresh Skin</span>
+            </div>
+            <h1>Shine Naturally with Morning Sun</h1>
+            <p>Awaken your skin's natural glow every morning. Morning Sun is crafted with nature-powered ingredients to refresh and rejuvenate your complexion.</p>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=800&h=600&fit=crop" alt="Diverse women with glowing skin">
+            <div class="product-card-hero">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=150&h=150&fit=crop" alt="Pure Natural Serum">
+                <h3>Pure Natural Serum</h3>
+                <p class="subtitle">Brightens and Protects Skin</p>
+                <div class="price">$16.99</div>
+                <button class="add-btn">Add to cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>About Codynn Care</h2>
+            <p>At Codynn Care, we believe that true beauty comes from nature. Our mission is to harness the power of natural ingredients to create effective, sustainable skincare solutions that enhance your natural radiance.</p>
+            <p>Every product is carefully formulated with premium botanical extracts, free from harsh chemicals, and designed to work in harmony with your skin's natural processes. We're committed to transparency, sustainability, and delivering results you can see and feel.</p>
+            <p>Founded by skincare enthusiasts who were frustrated with synthetic ingredients and false promises, Codynn Care was born from a passion to create products that actually work. Each formula undergoes rigorous testing and is backed by both traditional botanical wisdom and modern skincare science.</p>
+        </div>
+        <div class="about-features">
+            <div class="feature-card">
+                <i class="fas fa-leaf"></i>
+                <h3>100% Natural</h3>
+                <p>Only pure botanical ingredients, no synthetic additives or harsh chemicals</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-flask"></i>
+                <h3>Science-Backed</h3>
+                <p>Formulated with proven ingredients supported by dermatological research</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-recycle"></i>
+                <h3>Eco-Friendly</h3>
+                <p>Sustainable packaging and ethically sourced ingredients from around the world</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-heart"></i>
+                <h3>Cruelty-Free</h3>
+                <p>Never tested on animals, certified vegan and proudly cruelty-free</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <h2>Skin Essentials Products</h2>
+            <button class="view-all">See all Products <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <section class="testimonials" id="reviews">
+        <h2>Why Customers Love Us</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <div class="testimonial-text">"No matter where I am, at least one person always comments on my glowing skin. Truly the best serum I've ever used!"</div>
+                <div class="testimonial-author">— Esther Howard</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <div class="testimonial-text">"My skin has never felt more hydrated and smooth. The natural ingredients really make a difference. I'm obsessed!"</div>
+                <div class="testimonial-author">— Sarah Mitchell</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <div class="testimonial-text">"After just two weeks, my dark spots started fading and my complexion looks so much brighter. Highly recommend!"</div>
+                <div class="testimonial-author">— Maria Rodriguez</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Stay in the Glow</h2>
+        <p>Subscribe to get exclusive skincare tips and special offers</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Codynn Care</h3>
+                <p>Bringing you the finest natural skincare solutions for radiant, healthy skin. We believe in the power of nature.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="#about">About Us</a>
+                <a href="#products">Products</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h4>Customer Support</h4>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+                <a href="#">Track Order</a>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Codynn Care. All rights reserved. | Crafted with care for your skin</p>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                name: 'Glow Renewal Serum',
+                price: '$20.99',
+                reviews: '2550+ Reviews',
+                image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop'
+            },
+            {
+                name: 'Luminous Elixir Serum',
+                price: '$29.99',
+                reviews: '1030+ Reviews',
+                image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=200&h=200&fit=crop'
+            },
+            {
+                name: 'Botanical Glow Serum',
+                price: '$24.99',
+                reviews: '1350+ Reviews',
+                image: 'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=200&h=200&fit=crop'
+            },
+            {
+                name: 'Pure Botanica Serum',
+                price: '$32.99',
+                reviews: '1423+ Reviews',
+                image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200&h=200&fit=crop'
+            }
+        ];
+
+        function loadProducts() {
+            const grid = document.getElementById('productsGrid');
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-reviews">
+                        <span class="stars">★★★★☆</span>
+                        <span>${product.reviews}</span>
+                    </div>
+                    <div class="product-price">${product.price}</div>
+                    <button class="add-btn">Add to cart</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+</html>
